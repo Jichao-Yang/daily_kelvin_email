@@ -1,5 +1,5 @@
 #stores personal account information
-/secrets/accounts.py
+accounts.py
 
 
 # Byte-compiled / optimized / DLL files
