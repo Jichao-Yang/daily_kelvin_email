@@ -1,3 +1,7 @@
+#stores personal account information
+/secrets/accounts.py
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
