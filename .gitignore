@@ -1,5 +1,7 @@
 #stores personal account information
-secrets/
+secrets/accounts.py
+secrets/credentials.json
+secrets/token.json
 
 
 # Byte-compiled / optimized / DLL files
