@@ -1,5 +1,6 @@
 import os.path
 import base64
+import time
 from pywttr import Wttr
 from email.message import EmailMessage
 
@@ -21,6 +22,7 @@ def forecast(city='Chicago'):
             forecast = wttr.en().weather[0]
             break
         except:
+            time.sleep(10)
             print('Trying again...')
             continue
 
