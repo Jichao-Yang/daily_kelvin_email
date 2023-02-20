@@ -22,8 +22,8 @@ def forecast(city='Chicago'):
             result = requests.get(url).json()
             break
         except:
-            time.sleep(10)
             print('Trying again...')
+            time.sleep(10)
             continue
     forecast = result['weather'][0]
 
