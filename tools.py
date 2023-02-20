@@ -106,3 +106,8 @@ def send(creds, to_addr):
         send_message = None
 
     return send_message
+
+if __name__ == '__main__':
+    creds = get_credentials()
+    for to_addr in debug_email_list:
+        send(creds, to_addr)
