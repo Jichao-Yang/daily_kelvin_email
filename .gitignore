@@ -1,5 +1,5 @@
 #stores personal account information
-secrets/accounts.py
+secrets/info.py
 secrets/credentials.json
 secrets/token.json
 
