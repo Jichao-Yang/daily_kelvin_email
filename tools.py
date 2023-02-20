@@ -1,7 +1,7 @@
 import os.path
 import base64
-import requests
 import time
+from pywttr import Wttr
 from email.message import EmailMessage
 
 from google.auth.transport.requests import Request
@@ -15,24 +15,23 @@ assert os.path.exists('./secrets/info.py')
 from secrets.info import *
 
 def forecast(city='Chicago'):
-    url = 'https://wttr.in/{}?format=j1'.format(city)
+    wttr = Wttr(city)
     # Prevent HTTP timeout
     while True:
         try:
-            result = requests.get(url).json()
+            forecast = wttr.en().weather[0]
             break
         except:
             print('Trying again...')
             time.sleep(10)
             continue
-    forecast = result['weather'][0]
 
     # In normal units (celcius and kmh)
-    high = int(forecast['maxtemp_c'])
-    low = int(forecast['mintemp_c'])
+    high = int(forecast.maxtemp_c)
+    low = int(forecast.mintemp_c)
     hourly_windspeed = []
-    for hourly_item in forecast['hourly']:
-        hourly_windspeed.append(float(hourly_item['windspeed_kmph']))
+    for hourly_item in forecast.hourly:
+        hourly_windspeed.append(float(hourly_item.windspeed_kmph))
     windspeed = sum(hourly_windspeed)/len(hourly_windspeed)
     # Switch from Celcius to Kelvin
     high = int(high - 273.15)
