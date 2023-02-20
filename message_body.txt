@@ -1,0 +1,15 @@
+Good morning Eli,
+
+The temperature today will be a high of {} Kelvin and a low of {} Kevin.
+The average wind speed will be {} Nanolightyear/Second.
+
+Have a good day!
+Jichao
+
+-----------------------------------
+[*] To report a bug or request a new feature:
+Create a new issue at github.com/Jichao-Yang/daily_kelvin_email
+[*] To unsubscribe:
+You can't ¯\_(ツ)_/¯
+[*] To buy me a coffee:
+You can do that IRL

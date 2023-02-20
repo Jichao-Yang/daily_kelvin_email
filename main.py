@@ -1,7 +1,6 @@
 import os.path
 import base64
 
-from email.message import EmailMessage
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -11,6 +10,7 @@ from googleapiclient.errors import HttpError
 # Import to and from email accounts
 assert os.path.exists('./secrets/accounts.py')
 from secrets.accounts import *
+from tools import *
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
@@ -39,7 +39,7 @@ def get_credentials(token_path='./secrets/token.json', creds_path='./secrets/cre
 
     return creds
 
-def send(creds, content, subject):
+def send(creds):
     '''
     Create and insert a draft email.
     Print the returned draft's message and id.
@@ -51,13 +51,11 @@ def send(creds, content, subject):
         # create gmail api client
         service = build('gmail', 'v1', credentials=creds)
 
-        message = EmailMessage()
-        message.set_content(content)
-        message['To'] = to_addr
-        message['From'] = from_addr
-        message['Subject'] = subject
-
         # encoded message
+        message = compile()
+        message['From'] = from_addr
+        message['To'] = to_addr
+        # ensure encoding method
         encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
 
         create_message = {'raw': encoded_message}
@@ -70,4 +68,4 @@ def send(creds, content, subject):
     return send_message
 
 creds = get_credentials()
-send(creds, 'test', 'Test')
+send(creds)
