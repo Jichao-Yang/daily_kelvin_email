@@ -34,10 +34,10 @@ def forecast(city='Chicago'):
         hourly_windspeed.append(float(hourly_item.windspeed_kmph))
     windspeed = sum(hourly_windspeed)/len(hourly_windspeed)
     # Switch from Celcius to Kelvin
-    high = int(high - 273.15)
-    low = int(low - 273.15)
-    # Switch from kmh to nanolightyears per second
-    windspeed = int(windspeed * 10e9/2627980771.42)
+    high = int(high + 273.15)
+    low = int(low + 273.15)
+    # Switch from kmh to multiples of lightspeed
+    windspeed = int(windspeed * 10e9/1079252848.7999)
 
     return high, low, windspeed
 

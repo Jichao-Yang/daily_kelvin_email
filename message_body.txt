@@ -1,7 +1,7 @@
 Good morning Eli,
 
 The temperature today will be a high of {} Kelvin and a low of {} Kevin.
-The average wind speed will be {} Nanolightyear/Second.
+The average wind speed will be {} Nano-Lightspeed.
 
 Have a good day!
 Jichao
